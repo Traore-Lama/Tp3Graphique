@@ -1,4 +1,4 @@
-package graphique.tp3graphique.Models;
+package graphique.tp3graphique.models;
 
 public class Acteur
 {

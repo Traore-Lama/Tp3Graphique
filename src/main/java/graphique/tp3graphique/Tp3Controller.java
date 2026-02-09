@@ -1,8 +1,8 @@
 package graphique.tp3graphique;
 
-import graphique.tp3graphique.Models.Acteur;
-import graphique.tp3graphique.Models.Film;
-import graphique.tp3graphique.Models.Realisateur;
+import graphique.tp3graphique.models.Acteur;
+import graphique.tp3graphique.models.Film;
+import graphique.tp3graphique.models.Realisateur;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -65,7 +65,7 @@ public class Tp3Controller implements Initializable {
                  "\n" + "Liste des acteurs " + "\n" + "Nom de l'acteur = " + acteur1.getNomActeur() + "\n" +
                   "Prenom de l'acteur = " + acteur1.getPrenomActeur() + "\n" + "Nom de l'acteur = " + acteur2.getNomActeur() + "\n" +
                         "Prenom de l'acteur = " + acteur2.getPrenomActeur() + "\n" + "Nom de l'acteur = " + acteur3.getNomActeur() + "\n" +
-                 "Prenom de l'ateur = " + acteur3.getPrenomActeur()
+                 "Prenom de l'acteur = " + acteur3.getPrenomActeur()
         );
         alert.showAndWait();
 
@@ -88,7 +88,7 @@ public class Tp3Controller implements Initializable {
         Acteur acteur5 = new Acteur("Deneuve", "Catherine");
         Acteur acteur6 = new Acteur("De France", "Cécile");
         Acteur acteur7 = new Acteur("Chalamet", "Timothée");
-        Acteur acteur8 = new Acteur("Elle", "Fanning");
+        Acteur acteur8 = new Acteur("Fanning", "Elle");
         Acteur acteur9 = new Acteur("Ascaride", "Arianne");
         Acteur acteur10 = new Acteur("Darroussin", "Jean-Pierre");
 
@@ -110,13 +110,22 @@ public class Tp3Controller implements Initializable {
 
         // Une collection pour stocker tous les films
         List<Film> films = new ArrayList<>();
-        ObservableList<Film> filmsObs = FXCollections.observableArrayList(films);
 
         // On ajoute nos films à la collection
         films.add(film1);
         films.add(film2);
         films.add(film3);
 
+        // Ensuite créer l'ObservableList à partir de la liste remplie
+        ObservableList<Film> filmsObs = FXCollections.observableArrayList(films);
+
         tvListeFilms.setItems(filmsObs);
+
+        // Créer une liste observable pour les acteurs
+        ObservableList<Acteur> acteursObs = FXCollections.observableArrayList(
+                acteur4, acteur5, acteur6, acteur7, acteur8, acteur9, acteur10
+        );
+
+        tvListeActeurs.setItems(acteursObs);
     }
 }

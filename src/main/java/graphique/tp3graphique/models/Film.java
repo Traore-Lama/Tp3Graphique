@@ -1,4 +1,4 @@
-package graphique.tp3graphique.Models;
+package graphique.tp3graphique.models;
 
 import java.util.ArrayList;
 import java.util.List;
