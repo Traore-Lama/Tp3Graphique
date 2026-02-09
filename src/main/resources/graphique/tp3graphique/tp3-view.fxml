@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphique.tp3graphique.Tp3Controller">
+   <children>
+      <HBox layoutX="-4.0" prefHeight="100.0" prefWidth="606.0" style="-fx-background-color: purple;">
+         <children>
+            <Label alignment="CENTER" prefHeight="117.0" prefWidth="620.0" text="TP3" textFill="WHITE">
+               <font>
+                  <Font name="Javanese Text" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="25.0" layoutY="150.0" prefHeight="159.0" prefWidth="230.0">
+         <children>
+            <TableView fx:id="tvListeFilms" prefHeight="159.0" prefWidth="260.0">
+              <columns>
+                <TableColumn fx:id="tcTitreFilms" prefWidth="75.0" text="Titre" />
+                <TableColumn fx:id="tcNbEntrees" prefWidth="75.0" text="Nb Entrees" />
+                  <TableColumn fx:id="tcAnnee" prefWidth="75.0" text="Annee" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </HBox>
+      <HBox layoutX="333.0" layoutY="150.0" prefHeight="159.0" prefWidth="230.0">
+         <children>
+            <TableView fx:id="tvListeActeurs" prefHeight="159.0" prefWidth="240.0">
+              <columns>
+                <TableColumn fx:id="tcNomActeurs" prefWidth="75.0" text="Nom" />
+                <TableColumn fx:id="tcPrenomActeurs" prefWidth="75.0" text="Prenom" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </HBox>
+      <Label layoutX="25.0" layoutY="115.0" text="Liste des Films" />
+      <Label layoutX="333.0" layoutY="115.0" text="Liste des Acteurs" />
+      <Label layoutX="9.0" layoutY="321.0" prefHeight="58.0" prefWidth="98.0" text="Nom Realisateurs">
+         <font>
+            <Font name="Javanese Text" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtNomRealisateurs" layoutX="107.0" layoutY="337.0" prefHeight="26.0" prefWidth="154.0" />
+      <Label layoutX="314.0" layoutY="321.0" prefHeight="58.0" prefWidth="108.0" text="Prenom Realisateurs">
+         <font>
+            <Font name="Javanese Text" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPrenomRealisateurs" layoutX="431.0" layoutY="337.0" prefHeight="26.0" prefWidth="154.0" />
+   </children>
+</AnchorPane>
