@@ -5,6 +5,7 @@ import graphique.tp3graphique.models.Film;
 import graphique.tp3graphique.models.Realisateur;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -17,6 +18,7 @@ import java.util.ResourceBundle;
 
 public class Tp3Controller implements Initializable {
 
+    ArrayList<Film> films;
     @FXML
     private TableColumn<Acteur, String> tcPrenomActeurs;
     @FXML
@@ -24,9 +26,9 @@ public class Tp3Controller implements Initializable {
     @FXML
     private TableColumn<Acteur, String> tcNomActeurs;
     @FXML
-    private TableColumn<Film, Integer> tcNbEntrees;
+    private TableColumn<Film, Number> tcNbEntrees;
     @FXML
-    private TableColumn<Film, Integer> tcAnnee;
+    private TableColumn<Film, Number> tcAnnee;
     @FXML
     private TextField txtPrenomRealisateurs;
     @FXML
@@ -35,6 +37,7 @@ public class Tp3Controller implements Initializable {
     private TableView<Acteur> tvListeActeurs;
     @FXML
     private TableView<Film> tvListeFilms;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -70,13 +73,7 @@ public class Tp3Controller implements Initializable {
         alert.showAndWait();
 
 
-        // Remplissements des Colones du TableView
-        tcTitreFilms.setCellValueFactory(new PropertyValueFactory<>("titre"));
-        tcNbEntrees.setCellValueFactory(new PropertyValueFactory<>("nbEntree"));
-        tcAnnee.setCellValueFactory(new PropertyValueFactory<>("anneeSortie"));
-        tcNomActeurs.setCellValueFactory(new PropertyValueFactory<>("nomActeur"));
-        tcPrenomActeurs.setCellValueFactory(new PropertyValueFactory<>("prenomActeur"));
-
+        films = new ArrayList();
 
         // Les 3 réalisateurs
         Realisateur realisateur1 = new Realisateur("Bercot", "Emmanuelle");
@@ -108,24 +105,29 @@ public class Tp3Controller implements Initializable {
         film3.ajouterActeur(acteur9);
         film3.ajouterActeur(acteur10);
 
-        // Une collection pour stocker tous les films
-        List<Film> films = new ArrayList<>();
-
         // On ajoute nos films à la collection
         films.add(film1);
         films.add(film2);
         films.add(film3);
 
-        // Ensuite créer l'ObservableList à partir de la liste remplie
-        ObservableList<Film> filmsObs = FXCollections.observableArrayList(films);
+        // Remplissements des Colones du TableView
+        tcTitreFilms.setCellValueFactory(new PropertyValueFactory<>("titre"));
+        tcNbEntrees.setCellValueFactory(new PropertyValueFactory<>("nbEntree"));
+        tcAnnee.setCellValueFactory(new PropertyValueFactory<>("anneeSortie"));
+        tcNomActeurs.setCellValueFactory(new PropertyValueFactory<>("nomActeur"));
+        tcPrenomActeurs.setCellValueFactory(new PropertyValueFactory<>("prenomActeur"));
 
-        tvListeFilms.setItems(filmsObs);
+        // Ensuite on ajoute tout au TableView
+        tvListeFilms.setItems(FXCollections.observableArrayList(films));
 
-        // Créer une liste observable pour les acteurs
-        ObservableList<Acteur> acteursObs = FXCollections.observableArrayList(
-                acteur4, acteur5, acteur6, acteur7, acteur8, acteur9, acteur10
-        );
+    }
 
-        tvListeActeurs.setItems(acteursObs);
+    @FXML
+    public void tvListeFilmsOnClicked(Event event)
+    {
+        txtNomRealisateurs.setText(tvListeFilms.getSelectionModel().getSelectedItem().getRealisateur().getNom());
+        txtPrenomRealisateurs.setText(tvListeFilms.getSelectionModel().getSelectedItem().getRealisateur().getNom());
+
+        tvListeActeurs.setItems(FXCollections.observableArrayList(tvListeFilms.getSelectionModel().getSelectedItem().getActeurs()));
     }
 }

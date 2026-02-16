@@ -19,9 +19,9 @@
             </Label>
          </children>
       </HBox>
-      <HBox layoutX="25.0" layoutY="150.0" prefHeight="159.0" prefWidth="230.0">
+      <HBox layoutX="14.0" layoutY="150.0" prefHeight="159.0" prefWidth="277.0">
          <children>
-            <TableView fx:id="tvListeFilms" prefHeight="159.0" prefWidth="260.0">
+            <TableView fx:id="tvListeFilms" onMouseClicked="#tvListeFilmsOnClicked" prefHeight="159.0" prefWidth="306.0">
               <columns>
                 <TableColumn fx:id="tcTitreFilms" prefWidth="75.0" text="Titre" />
                 <TableColumn fx:id="tcNbEntrees" prefWidth="75.0" text="Nb Entrees" />
@@ -33,9 +33,9 @@
             </TableView>
          </children>
       </HBox>
-      <HBox layoutX="333.0" layoutY="150.0" prefHeight="159.0" prefWidth="230.0">
+      <HBox layoutX="309.0" layoutY="150.0" prefHeight="159.0" prefWidth="277.0">
          <children>
-            <TableView fx:id="tvListeActeurs" prefHeight="159.0" prefWidth="240.0">
+            <TableView fx:id="tvListeActeurs" prefHeight="159.0" prefWidth="269.0">
               <columns>
                 <TableColumn fx:id="tcNomActeurs" prefWidth="75.0" text="Nom" />
                 <TableColumn fx:id="tcPrenomActeurs" prefWidth="75.0" text="Prenom" />
@@ -46,8 +46,8 @@
             </TableView>
          </children>
       </HBox>
-      <Label layoutX="25.0" layoutY="115.0" text="Liste des Films" />
-      <Label layoutX="333.0" layoutY="115.0" text="Liste des Acteurs" />
+      <Label layoutX="14.0" layoutY="124.0" text="Liste des Films" />
+      <Label layoutX="324.0" layoutY="124.0" text="Liste des Acteurs" />
       <Label layoutX="9.0" layoutY="321.0" prefHeight="58.0" prefWidth="98.0" text="Nom Realisateurs">
          <font>
             <Font name="Javanese Text" size="12.0" />

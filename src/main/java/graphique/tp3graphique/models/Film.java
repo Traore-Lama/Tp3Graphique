@@ -9,7 +9,7 @@ public class Film
     private int nbEntree;
     private int anneeSortie;
     private Realisateur realisateur;
-    private List<Acteur> acteurs;
+    private ArrayList<Acteur> acteurs;
 
     public Film(String titre, int nbEntree, int anneeSortie, Realisateur realisateur) {
         this.titre = titre;
@@ -37,6 +37,10 @@ public class Film
 
     public int getAnneeSortie() {
         return anneeSortie;
+    }
+
+    public Realisateur getRealisateur() {
+        return realisateur;
     }
 
     public void setAnneeSortie(int anneeSortie) {
