@@ -126,7 +126,7 @@ public class Tp3Controller implements Initializable {
     public void tvListeFilmsOnClicked(Event event)
     {
         txtNomRealisateurs.setText(tvListeFilms.getSelectionModel().getSelectedItem().getRealisateur().getNom());
-        txtPrenomRealisateurs.setText(tvListeFilms.getSelectionModel().getSelectedItem().getRealisateur().getNom());
+        txtPrenomRealisateurs.setText(tvListeFilms.getSelectionModel().getSelectedItem().getRealisateur().getPrenom());
 
         tvListeActeurs.setItems(FXCollections.observableArrayList(tvListeFilms.getSelectionModel().getSelectedItem().getActeurs()));
     }
